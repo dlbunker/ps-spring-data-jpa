@@ -18,8 +18,12 @@ public class SessionsController {
     private SessionRepository repository;
 
     @GetMapping
-    public List<Session> list() {
-        return repository.list();
+    public List<Session> list(@RequestParam(required = false) String name) {
+        if(name != null) {
+            return repository.getSessionsThatHaveName(name);
+        } else {
+            return repository.list();
+        }
     }
 
     @GetMapping
