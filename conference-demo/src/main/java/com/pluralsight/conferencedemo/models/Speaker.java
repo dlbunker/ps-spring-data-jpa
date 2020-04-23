@@ -12,28 +12,17 @@ import java.util.List;
 public class Speaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "speaker_id")
-    private Long speakerId;
+    private Long speaker_id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "title")
+    private String first_name;
+    private String last_name;
     private String title;
-
-    @Column(name = "company")
     private String company;
-
-    @Column(name = "speaker_bio")
-    private String speakerBio;
+    private String speaker_bio;
 
     @Lob
     @Type(type="org.hibernate.type.BinaryType")
-    @Column(name = "speaker_photo")
-    private byte[] speakerPhoto;
+    private byte[] speaker_photo;
 
     @ManyToMany(mappedBy = "speakers")
     @JsonIgnore
@@ -42,12 +31,12 @@ public class Speaker {
     public Speaker() {
     }
 
-    public byte[] getSpeakerPhoto() {
-        return speakerPhoto;
+    public byte[] getSpeaker_photo() {
+        return speaker_photo;
     }
 
-    public void setSpeakerPhoto(byte[] speakerPhoto) {
-        this.speakerPhoto = speakerPhoto;
+    public void setSpeaker_photo(byte[] speaker_photo) {
+        this.speaker_photo = speaker_photo;
     }
 
     public List<Session> getSessions() {
@@ -58,28 +47,28 @@ public class Speaker {
         this.sessions = sessions;
     }
 
-    public Long getSpeakerId() {
-        return speakerId;
+    public Long getSpeaker_id() {
+        return speaker_id;
     }
 
-    public void setSpeakerId(Long speakerId) {
-        this.speakerId = speakerId;
+    public void setSpeaker_id(Long speaker_id) {
+        this.speaker_id = speaker_id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getTitle() {
@@ -98,11 +87,11 @@ public class Speaker {
         this.company = company;
     }
 
-    public String getSpeakerBio() {
-        return speakerBio;
+    public String getSpeaker_bio() {
+        return speaker_bio;
     }
 
-    public void setSpeakerBio(String speakerBio) {
-        this.speakerBio = speakerBio;
+    public void setSpeaker_bio(String speaker_bio) {
+        this.speaker_bio = speaker_bio;
     }
 }
