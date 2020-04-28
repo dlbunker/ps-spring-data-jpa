@@ -8,6 +8,9 @@
 
         <class>com.pluralsight.conferencedemo.models.Session</class>
         <class>com.pluralsight.conferencedemo.models.Speaker</class>
+		<class>com.pluralsight.conferencedemo.models.TicketPrice</class>
+		<class>com.pluralsight.conferencedemo.models.TicketType</class>
+		<class>com.pluralsight.conferencedemo.models.PricingCategory</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 	</persistence-unit>
