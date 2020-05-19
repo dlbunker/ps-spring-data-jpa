@@ -1,6 +1,7 @@
 package com.pluralsight.conferencedemo.repositories;
 
 import com.pluralsight.conferencedemo.models.Speaker;
+import com.pluralsight.conferencedemo.models.TicketPrice;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,20 +9,20 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class SpeakerRepository {
+public class TicketPriceRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Speaker create(Speaker speaker) {
-        entityManager.persist(speaker);
+    public TicketPrice create(TicketPrice tp) {
+        entityManager.persist(tp);
         entityManager.flush();
-        return speaker;
+        return tp;
     }
 
-    public Speaker update(Speaker speaker) {
-        speaker = entityManager.merge(speaker);
+    public TicketPrice update(TicketPrice tp) {
+        tp = entityManager.merge(tp);
         entityManager.flush();
-        return speaker;
+        return tp;
     }
 
     public void delete(Long id) {
@@ -29,11 +30,11 @@ public class SpeakerRepository {
         entityManager.flush();
     }
 
-    public Speaker find(Long id) {
-        return entityManager.find(Speaker.class, id);
+    public TicketPrice find(Long id) {
+        return entityManager.find(TicketPrice.class, id);
     }
 
-    public List<Speaker> list() {
-        return entityManager.createQuery("select s from speakers s").getResultList();
+    public List<TicketPrice> list() {
+        return entityManager.createQuery("select t from ticket_prices t").getResultList();
     }
 }
