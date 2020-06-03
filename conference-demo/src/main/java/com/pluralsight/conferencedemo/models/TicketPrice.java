@@ -3,6 +3,7 @@ package com.pluralsight.conferencedemo.models;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity(name = "ticket_prices")
 public class TicketPrice {
@@ -12,7 +13,7 @@ public class TicketPrice {
     private Long ticketPriceId;
 
     @Column(name = "base_price")
-    private String basePrice;
+    private BigDecimal basePrice;
 
     @ManyToOne
     @JoinColumn(name = "ticket_type_code", nullable = false, updatable = false)
@@ -33,11 +34,11 @@ public class TicketPrice {
         this.ticketPriceId = ticketPriceId;
     }
 
-    public String getBasePrice() {
+    public BigDecimal getBasePrice() {
         return basePrice;
     }
 
-    public void setBasePrice(String basePrice) {
+    public void setBasePrice(BigDecimal basePrice) {
         this.basePrice = basePrice;
     }
 
