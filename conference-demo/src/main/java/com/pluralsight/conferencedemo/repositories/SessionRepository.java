@@ -34,7 +34,7 @@ public class SessionRepository {
     }
 
     public List<Session> list() {
-        return entityManager.createQuery("select s from sessions s").getResultList();
+        return entityManager.createQuery("select s from Session s").getResultList();
     }
 
     public List<Session> getSessionsThatHaveName(String name) {
