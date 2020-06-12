@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "ticket_types")
+@Entity
+@Table(name = "ticket_types")
 public class TicketType {
     @Id
     @Column(name = "ticket_type_code")

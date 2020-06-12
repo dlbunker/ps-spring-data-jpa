@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Entity(name = "ticket_prices")
+@Entity
+@Table(name = "ticket_prices")
 public class TicketPrice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
