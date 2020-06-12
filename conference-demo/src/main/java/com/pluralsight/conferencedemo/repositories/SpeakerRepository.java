@@ -34,6 +34,6 @@ public class SpeakerRepository {
     }
 
     public List<Speaker> list() {
-        return entityManager.createQuery("select s from speakers s").getResultList();
+        return entityManager.createQuery("select s from Speaker s").getResultList();
     }
 }

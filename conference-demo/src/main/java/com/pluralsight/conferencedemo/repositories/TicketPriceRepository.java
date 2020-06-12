@@ -35,6 +35,6 @@ public class TicketPriceRepository {
     }
 
     public List<TicketPrice> list() {
-        return entityManager.createQuery("select t from ticket_prices t").getResultList();
+        return entityManager.createQuery("select t from TicketPrice t").getResultList();
     }
 }
