@@ -12,9 +12,9 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class TicketPriceTest {
@@ -57,5 +57,4 @@ public class TicketPriceTest {
 
         repository.deleteById(otherTp.getTicketPriceId());
     }
-
 }

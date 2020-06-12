@@ -9,8 +9,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class SpeakerTest {
@@ -45,5 +47,50 @@ public class SpeakerTest {
         assertEquals("Dan", otherSpeaker.getFirstName());
 
         repository.deleteById(otherSpeaker.getSpeakerId());
+    }
+
+    @Test
+    public void testJpaAnd() throws Exception {
+        List<Speaker> speakers = repository.findByFirstNameAndLastName("Justin", "Clark");
+        assertTrue(speakers.size() > 0);
+    }
+
+    @Test
+    public void testJpaOr() throws Exception {
+        List<Speaker> speakers = repository.findByFirstNameOrLastName("Justin", "Clark");
+        assertTrue(speakers.size() > 0);
+    }
+
+    @Test
+    public void testJpaNull() throws Exception {
+        List<Speaker> speakers = repository.findBySpeakerPhotoNull();
+        assertTrue(speakers.size() > 0);
+    }
+
+    @Test
+    public void testJpaIn() throws Exception {
+        List<String> companies = new ArrayList<>();
+        companies.add("National Bank");
+        companies.add("Contoso");
+        List<Speaker> speakers = repository.findByCompanyIn(companies);
+        assertTrue(speakers.size() > 0);
+    }
+
+    @Test
+    public void testJpaIgnoreCase() throws Exception {
+        List<Speaker> speakers = repository.findByCompanyIgnoreCase("national bank");
+        assertTrue(speakers.size() > 0);
+    }
+
+    @Test
+    public void testJpaOrderBy() throws Exception {
+        List<Speaker> speakers = repository.findByLastNameOrderByFirstNameAsc("Clark");
+        assertTrue(speakers.size() > 0);
+    }
+
+    @Test
+    public void testJpaFirst() throws Exception {
+        Speaker speaker = repository.findFirstByFirstName("James");
+        assertTrue(speaker.getFirstName().equals("James"));
     }
 }
