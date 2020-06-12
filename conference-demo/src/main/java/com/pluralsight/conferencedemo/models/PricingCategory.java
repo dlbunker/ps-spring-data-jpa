@@ -2,14 +2,12 @@ package com.pluralsight.conferencedemo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity(name = "pricing_categories")
+@Entity
+@Table(name = "pricing_categories")
 public class PricingCategory {
     @Id
     @Column(name = "pricing_category_code")

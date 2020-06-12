@@ -57,4 +57,11 @@ public class TicketPriceTest {
 
         repository.deleteById(otherTp.getTicketPriceId());
     }
+
+    @Test
+    public void testQueryAnnotation() throws Exception {
+        List<TicketPrice> tickets = repository.getTicketsUnderPriceWithWorkshops(BigDecimal.valueOf(1000));
+        assertTrue(tickets.size() > 0);
+    }
+
 }
