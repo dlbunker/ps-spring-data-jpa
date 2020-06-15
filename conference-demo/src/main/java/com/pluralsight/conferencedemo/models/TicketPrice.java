@@ -13,10 +13,11 @@ import java.math.BigDecimal;
 )
 @NamedNativeQuery(
         name = "TicketPrice.nativeFindTicketsByCategoryWithWorkshop",
-        query = "select * from ticket_prices tp " +
+        query = "select tp.* from ticket_prices tp " +
                 "left join ticket_types tt on tp.ticket_type_code = tt.ticket_type_code " +
                 "left join pricing_categories pc on tp.pricing_category_code = pc.pricing_category_code " +
-                "where tt.includes_workshop = true and pc.pricing_category_name = :name"
+                "where tt.includes_workshop = true and pc.pricing_category_name = :name",
+        resultClass = TicketPrice.class
 )
 public class TicketPrice {
     @Id
